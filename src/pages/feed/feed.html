@@ -14,38 +14,38 @@
 
 <ion-content padding>
 
-<ion-card>
+<ion-card *ngFor = "let filme of list_filmes" >
 
   <ion-item>
     <ion-avatar item-start>
       <img src="assets/imgs/logo.png">
     </ion-avatar>
-    <h2>Jorliano O</h2>
-    <p>November 5, 2017</p>
+    <h2>{{filme.original_title}}</h2>
+    <p>{{filme.release_date}}</p>
   </ion-item>
 
-  <img src="assets/imgs/logo.png">
+  <img [src]="'https://image.tmdb.org/t/p/w300/' + filme.poster_path">
 
   <ion-card-content>
-    <p>Create my first app in the ionic</p>
+    <p>{{filme.overview}}</p>
   </ion-card-content>
 
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+        <div>{{object_feed.qntd_likes}}</div>
       </button>
     </ion-col>
     <ion-col>
       <button ion-button icon-left clear small>
         <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+        <div>{{object_feed.qntd_comments}}</div>
       </button>
     </ion-col>
     <ion-col center text-center>
       <ion-note>
-        11h ago
+        {{object_feed.time_comment}}
       </ion-note>
     </ion-col>
   </ion-row>
